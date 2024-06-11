@@ -1,5 +1,6 @@
 require_relative 'player'
 require_relative 'board'
+require_relative 'round'
 
 class Game < Board
   attr_accessor :player_1, :player_2, :board
