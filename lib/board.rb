@@ -24,7 +24,6 @@ class Board
     print ' | '
     print @board[2][1]
     print ' | '
-    print @board[2][2]
+    puts @board[2][2]
   end
-
 end
