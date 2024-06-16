@@ -10,19 +10,19 @@ class Board
   end
 
   def update_board(sign, choice)
-    puts sign
-    puts choice.class
     @board.each do |row|
       row.map! do |square|
         if square == choice
-          puts "hi"
           square = sign
         else
-          puts ":("
           square = square
         end
       end
     end
+  end
+
+  def game_won?
+    
   end
 
   def show_board

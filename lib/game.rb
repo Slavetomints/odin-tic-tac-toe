@@ -18,29 +18,37 @@ class Game
     @board.show_board
   end
 
-  def play_game
+  def game_won?
+    @board.game_won?
+  end
+
+  def play_round
     active_player = @player_1
-    choice = gets.chomp.to_i
-    if choice.between?(1, 9)
+    choice = gets.chomp
+    if choice.to_i.between?(1, 9)
       if @selected_numbers.include?(choice)
         puts "Space already chosen, please pick again"
       else
         @selected_numbers << choice
         @board.update_board(active_player.sign, choice)
         @board.show_board
-        active_player == @player_1 ? @player_2 : @player_1
+        if game.game_won?
+          puts "#{active_player} wins!"
+        else 
+          active_player == @player_1 ? @player_2 : @player_1
+        end
       end
     else puts "Invalid choice, please pick again"
     end
-
   end
 
-  while @game_over = false
+  while @game_over == false
+    game.play_round
   end
 end
 
 game = Game.new('player_1', 'player_2')
 game.show_board
-game.play_game
+game.play_round
 
 
