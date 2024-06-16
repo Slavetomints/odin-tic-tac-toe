@@ -1,6 +1,6 @@
 #This class contains all of the logic for the players of the game
 class Player
-  attr_accessor :name
+  attr_accessor :name, :sign
 
   def initialize(sign)
     @sign = sign
