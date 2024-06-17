@@ -5,8 +5,7 @@ class Board
   attr_accessor :board
 
   def initialize
-    @board = [%w[1 2 3], %w[4 5 6], %w[7 8 9], %w[1 4 7], %w[2 5 8], %w[3 6 9],
-              %w[1 5 9], %w[3 5 7]]
+    @board = [%w[1 2 3], %w[4 5 6], %w[7 8 9], %w[1 4 7], %w[2 5 8], %w[3 6 9], %w[1 5 9], %w[3 5 7]]
   end
 
   def update_board(sign, choice)
@@ -22,7 +21,16 @@ class Board
   end
 
   def game_won?
-    
+    @board.each do |row|
+      return true if row.uniq.length == 1
+    end
+    false
+  end
+
+  def game_tied?
+    @board.each do |row|
+      puts row
+    end
   end
 
   def show_board
