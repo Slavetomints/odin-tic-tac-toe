@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'player'
 
-#This class contains the logic for the board
+# This class contains the logic for the board
 class Board
   attr_accessor :board
 
@@ -12,9 +14,9 @@ class Board
     @board.each do |row|
       row.map! do |square|
         if square == choice
-          square = sign
+          sign
         else
-          square = square
+          square
         end
       end
     end
@@ -30,9 +32,7 @@ class Board
   def game_tied?
     tied_board = @board.flatten
     tied_board.each do |square|
-      if square.to_i.between?(1, 9)
-        return false
-      end
+      return false if square.to_i.between?(1, 9)
     end
   end
 
@@ -43,8 +43,8 @@ class Board
   def show_board
     puts " #{@board[0][0]} | #{@board[0][1]} | #{@board[0][2]}"
     puts '---+---+---'
-    puts ' ' + @board[1][0] + ' | ' + @board[1][1] + ' | ' + @board[1][2]
+    puts " #{@board[1][0]} | #{@board[1][1]} | #{@board[1][2]}"
     puts '---+---+---'
-    puts ' ' + @board[2][0] + ' | ' + @board[2][1] + ' | ' + @board[2][2]
+    puts " #{@board[2][0]} | #{@board[2][1]} | #{@board[2][2]}"
   end
 end
