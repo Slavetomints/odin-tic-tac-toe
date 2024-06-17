@@ -29,8 +29,16 @@ class Game
         @selected_numbers << choice
         @board.update_board(@active_player.sign, choice)
         if @board.game_won?
+          puts "---------------------"
           puts "#{@active_player.name} wins!"
           puts @board.show_board
+          puts "---------------------"
+          exit
+        elsif @board.game_tied?
+          puts "---------------------"
+          puts "Tie Game!"
+          puts @board.show_board
+          puts "---------------------"
           exit
         else @active_player = @active_player == @player_1 ? @player_2 : @player_1
         end
@@ -41,21 +49,7 @@ class Game
 end
 
 game = Game.new('player_1', 'player_2')
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
-game.play_round
+loop do
+  game.play_round
+end
 

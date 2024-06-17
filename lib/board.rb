@@ -28,9 +28,16 @@ class Board
   end
 
   def game_tied?
-    @board.each do |row|
-      puts row
+    tied_board = @board.flatten
+    tied_board.each do |square|
+      if square.to_i.between?(1, 9)
+        return false
+      end
     end
+  end
+
+  def reset_board
+    @board = [%w[1 2 3], %w[4 5 6], %w[7 8 9], %w[1 4 7], %w[2 5 8], %w[3 6 9], %w[1 5 9], %w[3 5 7]]
   end
 
   def show_board
